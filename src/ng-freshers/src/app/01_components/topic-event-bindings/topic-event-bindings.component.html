@@ -1,0 +1,43 @@
+<article class="message">
+  <div class="message-header">
+    <p>Event Bindings</p>
+    <button class="delete" aria-label="delete"></button>
+  </div>
+  <div class="message-body">
+    <div class="field">
+      <div class="control">
+        <input
+          class="input is-primary"
+          type="text"
+          [value]="name"
+          (input)="onInput($event)"
+        />
+        <span>{{ name }}</span>
+        <button class="button is-small is-danger" (click)="resetName()">
+          Reset
+        </button>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <input
+          class="input is-primary"
+          type="text"
+          [value]="message"
+          #msgInput
+        />
+        <!-- template literals-->
+        <!-- msgInput = input dom node; -->
+
+        <span class="tag">{{ message }}</span>
+        <button
+          class="button is-small is-link"
+          (click)="showMessageFromInput(msgInput)"
+        >
+          Show Message
+        </button>
+      </div>
+    </div>
+  </div>
+</article>

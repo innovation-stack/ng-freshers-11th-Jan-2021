@@ -1,0 +1,28 @@
+<h3>{{ name }} has been viewed</h3>
+<div class="columns">
+  <div class="column">
+    <!-- [user]:  property binding -->
+    <!-- (userViewed): event binding -->
+    <ngr-user-card
+      [user]="users[0]"
+      (userViewed)="onUserViewed($event)"
+    ></ngr-user-card>
+  </div>
+  <div class="column">
+    <ngr-user-card
+      [user]="users[1]"
+      (userViewed)="onUserViewed($event)"
+    ></ngr-user-card>
+  </div>
+  <div class="column">
+    <ngr-user-card
+      [user]="users[2]"
+      (userViewed)="onUserViewed($event)"
+    ></ngr-user-card>
+  </div>
+</div>
+
+<div class="columns">
+  <ngr-topic-property-bindings></ngr-topic-property-bindings>
+  <ngr-topic-event-bindings></ngr-topic-event-bindings>
+</div>
