@@ -1,0 +1,47 @@
+<nav class="navbar is-success" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+      <img
+        src="https://bulma.io/images/bulma-logo.png"
+        width="112"
+        height="28"
+      />
+    </a>
+
+    <a
+      role="button"
+      class="navbar-burger"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="navbarBasicExample"
+      ngrNavbarToggler
+      #toggler="nbToggler"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div
+    id="navbarBasicExample"
+    class="navbar-menu"
+    [ngClass]="{ 'is-active': toggler.isNavbarMenuActive() }"
+  >
+    <div class="navbar-start">
+      <a class="navbar-item"> Home </a>
+
+      <a class="navbar-item"> Documentation </a>
+    </div>
+  </div>
+</nav>
+
+<article class="message">
+  <div class="message-header">
+    <p>Hello World</p>
+    <button class="delete" aria-label="delete"></button>
+  </div>
+  <div class="message-body">
+    <p ngrHighlight>Some text to highight</p>
+  </div>
+</article>

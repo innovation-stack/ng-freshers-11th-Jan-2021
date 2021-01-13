@@ -1,0 +1,57 @@
+<article class="message is-link">
+  <div class="message-header">
+    <p>Built-in Pipes</p>
+  </div>
+  <div class="message-body">
+    <table class="table is-bordered">
+      <tbody>
+        <tr>
+          <td>Title</td>
+          <td>
+            Uppercased:
+            <span class="tag is-medium">
+              {{ course.title | uppercase }}
+            </span>
+            <br />
+            <br />
+            Lowercased:
+            <span class="tag is-medium">
+              {{ course.title | lowercase }}
+            </span>
+            <br />
+            <br />
+            Lowercased:
+            <span class="tag is-medium">
+              {{ course.title | titlecase }}
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>Total Students</td>
+          <td>
+            {{ course.students | number }}
+            <!-- DecimalPipe -->
+          </td>
+        </tr>
+        <tr>
+          <td>Rating</td>
+          <td>
+            {{ course.rating | number: "2.3-3" }}
+          </td>
+        </tr>
+        <tr>
+          <td>Price</td>
+          <td>
+            {{ course.price | currency: "AUD":true:"3.2-2" }}
+          </td>
+        </tr>
+        <tr>
+          <td>Release date</td>
+          <td>
+            {{ course.releaseDate | date: "fullDate" }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</article>
