@@ -1,43 +1,41 @@
-<div class="column">
-  <article class="message">
-    <div class="message-header">
-      <p>Property Bindings</p>
-      <button class="delete" aria-label="delete"></button>
-    </div>
-    <div class="message-body">
-      <div>{{ text }}</div>
-      <div [textContent]="text"></div>
-      <div [innerHTML]="htmlSnippet"></div>
+<article class="message">
+  <div class="message-header">
+    <p>Property Bindings</p>
+    <button class="delete" aria-label="delete"></button>
+  </div>
+  <div class="message-body">
+    <div>{{ text }}</div>
+    <div [textContent]="text"></div>
+    <div [innerHTML]="htmlSnippet"></div>
 
-      <div class="field">
-        <div class="control">
-          <input
-            class="input is-primary"
-            type="text"
-            [value]="inputValue"
-            placeholder="Primary input"
-          />
-        </div>
-      </div>
-
-      <div class="field">
-        <div class="control">
-          <input
-            class="input is-primary"
-            type="text"
-            [value]="inputValue"
-            [disabled]="true"
-            placeholder="Primary input"
-          />
-        </div>
-      </div>
-
-      <div class="tags">
-        <div [hidden]="shouldHideText">This text needs to be hidden</div>
-        <button class="button is-small is-danger" (click)="toggleText()">
-          {{ this.shouldHideText ? "Show Text" : "Hide Text" }}
-        </button>
+    <div class="field">
+      <div class="control">
+        <input
+          class="input is-primary"
+          type="text"
+          [value]="inputValue"
+          placeholder="Primary input"
+        />
       </div>
     </div>
-  </article>
-</div>
+
+    <div class="field">
+      <div class="control">
+        <input
+          class="input is-primary"
+          type="text"
+          [value]="inputValue"
+          [disabled]="true"
+          placeholder="Primary input"
+        />
+      </div>
+    </div>
+
+    <div class="tags">
+      <div [hidden]="shouldHideText">This text needs to be hidden</div>
+      <button class="button is-small is-danger" (click)="toggleText()">
+        {{ this.shouldHideText ? "Show Text" : "Hide Text" }}
+      </button>
+    </div>
+  </div>
+</article>
