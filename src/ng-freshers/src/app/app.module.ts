@@ -8,6 +8,10 @@ import { UiToolbarComponent } from './ui-toolbar/ui-toolbar.component';
 import { BuiltInDirectivesModule } from './02_built-in-directives/built-in-directives.module';
 import { PipesModule } from './03_pipes/pipes.module';
 import { CustomDirectivesModule } from './04_custom-directives/custom-directives.module';
+import { FormsDemoModule } from './05_forms-demo/forms-demo.module';
+import { ServicesModule } from './06_services/services.module';
+import { HelloWorldService } from './06_services/hello-world.service';
+import { TodoProjectModule } from './07_todo-project/todo-project.module';
 @NgModule({
   declarations: [AppComponent, UiToolbarComponent],
   imports: [
@@ -17,8 +21,11 @@ import { CustomDirectivesModule } from './04_custom-directives/custom-directives
     // BuiltInDirectivesModule,
     PipesModule,
     CustomDirectivesModule,
+    FormsDemoModule,
+    ServicesModule,
+    TodoProjectModule,
   ],
-  providers: [],
+  // providers: [HelloWorldService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

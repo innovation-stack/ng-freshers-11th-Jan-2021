@@ -1,0 +1,147 @@
+<div class="columns">
+  <div class="column">
+    <form [formGroup]="userForm">
+      <div class="field">
+        <label class="label">Name</label>
+        <div class="control">
+          <input
+            class="input"
+            [ngClass]="{ 'is-danger': hasError('name', 'required') }"
+            type="text"
+            placeholder="Text input"
+            formControlName="name"
+          />
+        </div>
+        <p class="help is-danger" *ngIf="hasError('name', 'required')">
+          Name is required
+        </p>
+      </div>
+
+      <div class="field">
+        <label class="label">Username</label>
+        <div class="control has-icons-left has-icons-right">
+          <input
+            class="input"
+            [ngClass]="{ 'is-danger': hasError('username', 'required') }"
+            type="text"
+            placeholder="Text input"
+            formControlName="username"
+          />
+        </div>
+        <p class="help is-danger" *ngIf="hasError('username', 'required')">
+          Username is required
+        </p>
+      </div>
+
+      <div class="field">
+        <label class="label">Email</label>
+        <div class="control has-icons-left has-icons-right">
+          <input
+            class="input"
+            type="email"
+            placeholder="Email input"
+            formControlName="email"
+            [ngClass]="{
+              'is-danger': hasError('email', ['required', 'email'])
+            }"
+          />
+        </div>
+        <p class="help is-danger" *ngIf="hasError('email', 'required')">
+          Email is required
+        </p>
+        <p class="help is-danger" *ngIf="hasError('email', 'email')">
+          Email is invalid
+        </p>
+      </div>
+
+      <div class="field">
+        <label class="label">Gender</label>
+        <div class="control">
+          <label class="radio">
+            <input
+              type="radio"
+              [ngClass]="{ 'is-danger': hasError('gender', 'required') }"
+              name="gender"
+              formControlName="gender"
+              value="male"
+            />
+            Male
+          </label>
+          <label class="radio">
+            <input
+              type="radio"
+              [ngClass]="{ 'is-danger': hasError('gender', 'required') }"
+              name="gender"
+              formControlName="gender"
+              value="female"
+            />
+            Female
+          </label>
+        </div>
+        <p class="help is-danger" *ngIf="hasError('gender', 'required')">
+          Gender is required
+        </p>
+      </div>
+
+      <div class="field">
+        <label class="label">Role</label>
+        <div class="control">
+          <div class="select">
+            <select
+              formControlName="role"
+              [ngClass]="{ 'is-danger': hasError('role', 'required') }"
+            >
+              <option value="">Select Role</option>
+              <option *ngFor="let role of roles" [value]="role.id">
+                {{ role.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <p class="help is-danger" *ngIf="hasError('role', 'required')">
+          Role is required
+        </p>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <label
+            class="checkbox"
+            [ngClass]="{ 'is-danger': hasError('agreeToTerms', 'required') }"
+          >
+            <input type="checkbox" formControlName="agreeToTerms" />
+            I agree to the <a href="#">terms and conditions</a>
+          </label>
+        </div>
+        <p class="help is-danger" *ngIf="hasError('agreeToTerms', 'required')">
+          Terms needs to be agreed upon.
+        </p>
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link" [disabled]="userForm.invalid">
+            Submit
+          </button>
+        </div>
+        <div class="control">
+          <button
+            class="button is-link is-light"
+            [disabled]="userForm.pristine"
+            (click)="resetForm()"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="column">
+    <pre>
+      {{ userForm.value | json }}
+    </pre>
+    <pre>
+      {{ userForm.controls["email"].errors | json }}
+    </pre>
+  </div>
+</div>

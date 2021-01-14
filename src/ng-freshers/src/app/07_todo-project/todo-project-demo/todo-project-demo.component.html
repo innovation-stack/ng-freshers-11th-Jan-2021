@@ -1,0 +1,92 @@
+<div class="columns">
+  <div class="column">
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">Todo App</h1>
+          <h2 class="subtitle">Manage you todos</h2>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="column">
+    <!-- list -->
+    <table
+      class="table is-striped is-hoverable is-bordered"
+      *ngIf="todos.length > 0; else noTodos"
+    >
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Completed</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let todo of todos" (click)="selectTodo(todo)">
+          <td>{{ todo.name }}</td>
+          <td>
+            {{
+              todo.completed
+                | yesno: "has been completed":"hasn't been completed"
+            }}
+          </td>
+          <td>
+            <button
+              class="button is-danger is-small"
+              (click)="handleDelete(todo)"
+            >
+              X
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-template #noTodos>
+      <p class="no-todo">No Todos Available</p>
+    </ng-template>
+  </div>
+  <div class="column">
+    <form [formGroup]="todoForm" (ngSubmit)="handleFormSubmit()">
+      <div class="field">
+        <label class="label">Name</label>
+        <div class="control">
+          <input type="hidden" formControlName="id" />
+          <input
+            class="input"
+            type="text"
+            placeholder="Enter name"
+            formControlName="name"
+          />
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input type="checkbox" formControlName="completed" />
+            Completed
+          </label>
+        </div>
+      </div>
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link" [disabled]="todoForm.invalid">
+            Submit
+          </button>
+        </div>
+        <div class="control">
+          <button
+            class="button is-link is-warning"
+            [disabled]="todoForm.pristine"
+            (click)="resetForm()"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
